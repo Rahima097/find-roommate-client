@@ -11,24 +11,25 @@ const Header = () => {
         </>
     );
     return (
-        <div className="navbar bg-base-100 shadow-md px-4 py-3">
-            <div className="navbar-start">
-                <Link to="/" className="text-2xl font-bold">FindRoomMate</Link>
-            </div>
-
-            <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 gap-2">
-                    {navItems}
-                </ul>
-            </div>
-
-            <div className="navbar-end">
-
-                <div className="flex gap-2">
-                    <Link to="/login" className="btn btn-sm">Login</Link>
-                    <Link to="/register" className="btn btn-sm btn-outline">Signup</Link>
+        <div className=" shadow-md px-4 py-3">
+            <div className='w-11/12 mx-auto flex flex-row justify-between items-center'>
+                <div className="">
+                    <Link to="/" className="text-3xl font-bold text-primary">Find<span className='text-secondary'>RoomMate</span></Link>
                 </div>
 
+                <div className=" hidden lg:flex">
+                    <ul className=" text-base font-bold text-secondary flex flex-row gap-6">
+                        {navItems}
+                    </ul>
+                </div>
+
+                <div className="">
+                    <div className="flex gap-2">
+                        <Link to="/login" className="btn bg-primary text-white text-base hover:bg-secondary">Login</Link>
+                        <Link to="/register" className="btn bg-secondary text-white text-base hover:bg-primary">Signup</Link>
+                    </div>
+
+                </div>
             </div>
         </div>
     );
