@@ -4,7 +4,7 @@ import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
     return (
-        <footer className="footer bg-primary p-10 flex flex-col items-center  mt-10">
+        <footer className="footer bg-primary p-10 flex flex-col items-center  ">
             <div className="w-11/12 mx-auto flex flex-col lg:flex-row md:flex-row justify-between items-start border-b-1 pb-14 border-white">
                 <div>
                     <p className="text-3xl font-bold text-white mb-4">Find<span className='text-secondary'>RoomMate</span></p>
