@@ -1,6 +1,6 @@
 import {createBrowserRouter} from "react-router";
 import homeLayout from "../Layouts/homeLayout";
-import home from "../Pages/home";
+import Home from "../Pages/Home"
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import errorPage from "../Pages/errorPage";
@@ -17,7 +17,8 @@ const router = createBrowserRouter([
     children: [
       {
         path: "",
-        Component: home,
+        loader: () => fetch('http://localhost:3000/roommates/available?limit=6').then(res => res.json()),
+        Component: Home,
       },
       {
         path: "/login",
