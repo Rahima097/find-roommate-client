@@ -3,12 +3,13 @@ import homeLayout from "../Layouts/homeLayout";
 import Home from "../Pages/Home"
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
-import errorPage from "../Pages/ErrorPage";
+import ErrorPage from "../Pages/ErrorPage";
 import AddToFindRoommate from "../Pages/AddToFindRoommate";
 import BrowseListings from "../Pages/BrowseListings";
 import MyListings from "../Pages/MyListings";
 import PrivateRoute from "../Provider/PrivateRoute";
 import RoommateDetails from "../Pages/RoommateDetails";
+import UpdateListing from "../Pages/UpdateListing";
 
 
 
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/add-listings",
-        element: <AddToFindRoommate></AddToFindRoommate>,
+        element: <PrivateRoute><AddToFindRoommate></AddToFindRoommate></PrivateRoute>,
       },
       {
         path: "/browse-listings",
@@ -46,13 +47,18 @@ const router = createBrowserRouter([
       {
         path: "/roommate/:id",
         element: <RoommateDetails></RoommateDetails>,
+      },
+      {
+        path: "/mylistings/update/:id",
+        element: < PrivateRoute ><UpdateListing></UpdateListing></PrivateRoute >,      
       }
+      
 
     ]
   },
-  {
-    path: "*",
-    Component: errorPage,
+{
+  path: "*",
+    Component: ErrorPage,
   },
 ]);
 export default router
