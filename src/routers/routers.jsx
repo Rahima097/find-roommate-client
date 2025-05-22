@@ -1,12 +1,14 @@
-import {createBrowserRouter} from "react-router";
+import { createBrowserRouter } from "react-router";
 import homeLayout from "../Layouts/homeLayout";
 import Home from "../Pages/Home"
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
-import errorPage from "../Pages/errorPage";
-import addToFindRoommate from '../Pages/addToFindRoommate';
-import browseListings from '../Pages/browseListings';
-import myListings from '../Pages/myListings';
+import errorPage from "../Pages/ErrorPage";
+import AddToFindRoommate from "../Pages/AddToFindRoommate";
+import BrowseListings from "../Pages/BrowseListings";
+import MyListings from "../Pages/MyListings";
+import PrivateRoute from "../Provider/PrivateRoute";
+import RoommateDetails from "../Pages/RoommateDetails";
 
 
 
@@ -16,7 +18,7 @@ const router = createBrowserRouter([
     Component: homeLayout,
     children: [
       {
-        path: "",
+        path: "/",
         loader: () => fetch('http://localhost:3000/roommates/available?limit=6').then(res => res.json()),
         Component: Home,
       },
@@ -30,20 +32,25 @@ const router = createBrowserRouter([
       },
       {
         path: "/add-listings",
-        Component: addToFindRoommate,
+        element: <AddToFindRoommate></AddToFindRoommate>,
       },
       {
         path: "/browse-listings",
-        Component: browseListings,
+        element: <BrowseListings></BrowseListings>,
       },
       {
         path: "/my-listings",
-        Component: myListings ,
+        element: <PrivateRoute><MyListings></MyListings></PrivateRoute>,
       },
+
+      {
+        path: "/roommate/:id",
+        element: <RoommateDetails></RoommateDetails>,
+      }
 
     ]
   },
-   {
+  {
     path: "*",
     Component: errorPage,
   },

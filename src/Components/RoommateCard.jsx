@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const RoommateCard = ({ roommate }) => {
-    const { title, location, rentAmount, roomType, lifestyle = [], description, name } = roommate;
+    const { _id, title, location, rentAmount, roomType, lifestyle = [], description, name } = roommate;
     return (
         <div className="card bg-base-100 shadow-xl border hover:shadow-2xl transition-all duration-300">
             {/* <figure>
@@ -26,7 +26,7 @@ const RoommateCard = ({ roommate }) => {
                             : lifestyle || 'Not specified'}</p>
                 </div>
                 <div className="card-actions justify-end mt-4">
-                    <Link to="">
+                    <Link to={`/roommate/${roommate._id}`}>
                         <button className="btn btn-primary btn-sm">See More</button>
                     </Link>
                 </div>

@@ -1,7 +1,7 @@
 import Swal from "sweetalert2";
 
 
-const addToFindRoommate = () => {
+const AddToFindRoommate = () => {
 
     const handleAddRoommate = e => {
         e.preventDefault();
@@ -63,4 +63,4 @@ const addToFindRoommate = () => {
     );
 };
 
-export default addToFindRoommate;
+export default AddToFindRoommate;

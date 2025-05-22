@@ -11,7 +11,7 @@ const FeatureRoommate = ({ roommates }) => {
                     {
                         roommates && roommates.length > 0
                             ? roommates.map(roommate => (
-                                <RoommateCard key={roommate._id} roommate={roommate} />
+                                <RoommateCard key={roommate._id} roommate={roommate}></RoommateCard>
                             ))
                             : <p>No roommates available</p>
                     }
