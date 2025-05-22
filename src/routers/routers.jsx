@@ -46,7 +46,7 @@ const router = createBrowserRouter([
 
       {
         path: "/roommate/:id",
-        element: <RoommateDetails></RoommateDetails>,
+        element: <PrivateRoute><RoommateDetails></RoommateDetails></PrivateRoute>,
       },
       {
         path: "/mylistings/update/:id",

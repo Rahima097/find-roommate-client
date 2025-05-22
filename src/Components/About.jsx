@@ -3,6 +3,7 @@ import aboutoneImg from './../assets/about1.jpg'
 import abouttwoImg from './../assets/about2.jpg'
 import rentRoomImg from './../assets/rent-room.jpg'
 import findRoomImg from './../assets/find-room.jpg'
+import { Link } from 'react-router';
 
 
 const About = () => {
@@ -51,9 +52,7 @@ const About = () => {
                             📍 Location-Based Matching
                         </span>
                     </div>
-                    <button className="btn btn-primary mt-6">
-                        Learn More About Us ↗
-                    </button>
+                    <Link to="/browse-listings" className="btn btn-primary mt-6">Check All Listing ↗</Link>
                 </div>
             </div>
             <div className='w-11/12 mx-auto'>
@@ -69,7 +68,7 @@ const About = () => {
                                 <li>✅ Create a free account and manage your listings easily.</li>
                                 <li>✅ Get contacted by potential roommates through our platform.</li>
                             </ul>
-                            <button className="btn btn-outline btn-primary mt-4">Start Listing</button>
+                            <Link to="/browse-listings" className="btn btn-primary mt-6">Start Searching ↗</Link>
                         </div>
                         <div className="flex-1">
                             <img
@@ -91,7 +90,7 @@ const About = () => {
                                 <li>✅ Check roommate profiles and shared interests.</li>
                                 <li>✅ Contact listers and book a visit or chat securely.</li>
                             </ul>
-                            <button className="btn btn-outline btn-primary mt-4">Start Searching</button>
+                            <Link to="/browse-listings" className="btn btn-primary mt-6">Start Searching ↗</Link>
                         </div>
                         <div className="flex-1">
                             <img
