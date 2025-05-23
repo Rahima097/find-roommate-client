@@ -14,7 +14,7 @@ const Footer = () => {
                     <h3 className="text-2xl text-secondary font-bold mb-4">Contact</h3>
                     <a className="text-white text-base">support@findroommate.com</a>
                     <br />
-                    <a className="text-white text-base">019********</a>
+                    <a className="text-white text-base">01913336446</a>
                 </div>
                 <div>
                     <h3 className="text-2xl text-secondary font-bold mb-4">Legal</h3>
