@@ -6,7 +6,7 @@ const FeatureRoommate = ({ roommates }) => {
     return (
         <div className=''>
             <div className='w-11/12 mx-auto py-12'>
-                <h2 className='text-3xl font-bold text-primary text-center'>Feature Roommate</h2>
+                <h2 className='text-4xl font-bold text-primary text-center'>Feature <span className='text-secondary'>Roommate</span></h2>
                 <div className=' py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 '  >
                     {
                         roommates && roommates.length > 0
