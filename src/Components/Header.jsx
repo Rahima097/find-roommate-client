@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { AuthContext } from '../Provider/AuthProvider';
+import defaultAvatar from './../assets/default-user-img.png'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,7 +19,6 @@ const Header = () => {
   return (
     <div className="shadow-md px-4 py-3 bg-white z-50 relative">
       <div className="w-11/12 mx-auto flex justify-between items-center">
-        {/* Logo */}
         <Link to="/" className="text-3xl font-bold text-primary">
           Find<span className="text-secondary">RoomMate</span>
         </Link>
@@ -44,7 +44,7 @@ const Header = () => {
             <>
               <div className="relative group">
                 <img
-                  src={user.photoURL || '/default-avatar.png'}
+                  src={user.photoURL || defaultAvatar }
                   alt={user.displayName || 'User'}
                   className="w-10 h-10 rounded-full cursor-pointer"
                 />

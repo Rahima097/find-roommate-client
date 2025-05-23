@@ -13,7 +13,7 @@ const RoommateCard = ({ roommate }) => {
                 />
             </figure> */}
             <div className="card-body">
-                <h2 className="card-title text-lg font-bold">{title}</h2>
+                <h2 className="card-title text-2xl text-primary font-bold">{title}</h2>
                 <p className="text-sm text-gray-600">{description}</p>
                 <div className="mt-2 space-y-1 text-sm">
                     <p><span className="font-medium">Location:</span> {location}</p>
@@ -27,7 +27,7 @@ const RoommateCard = ({ roommate }) => {
                 </div>
                 <div className="card-actions justify-end mt-4">
                     <Link to={`/roommate/${roommate._id}`}>
-                        <button className="btn btn-primary btn-sm">See More</button>
+                        <button className="btn btn-primary text-white btn-sm">See More</button>
                     </Link>
                 </div>
             </div>
