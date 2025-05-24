@@ -90,7 +90,7 @@ const Header = () => {
               <>
                 <div className="relative group">
                   <img
-                    src={user.photoURL || '/default-avatar.png'}
+                    src={user.photoURL || defaultAvatar}
                     alt={user.displayName || 'User'}
                     className="w-10 h-10 rounded-full mb-2"
                   />
