@@ -4,16 +4,20 @@ import { FaGoogle } from "react-icons/fa"
 import { toast } from "react-toastify";
 import { AuthContext } from '../Provider/AuthProvider';
 import { FaEyeSlash, FaEye } from "react-icons/fa";
+import { updateProfile } from 'firebase/auth';
+import defaultAvatar from './../assets/default-user-img.png'
 
 const Register = () => {
     const { register, googleLogin } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
 
-    const handleRegister = (e) => {
+    const handleRegister = async (e) => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
+        const photoURL = form.photoURL.value || defaultAvatar;
+        const name = form.name.value;
         const password = form.password.value;
 
         if (!/[A-Z]/.test(password) || !/[a-z]/.test(password) || password.length < 6) {
@@ -21,14 +25,23 @@ const Register = () => {
             return;
         }
 
-        register(email, password)
-            .then(() => {
-                toast.success("Registration successful!");
-                navigate("/");
-            })
-            .catch(err => {
-                toast.error(err.message);
+        try {
+            const result = await register(email, password);
+            const currentUser = result.user;
+
+            await updateProfile(currentUser, {
+                displayName: name,
+                photoURL: photoURL
             });
+
+            // Optional: reload the user to make sure info is updated in Firebase client
+            await currentUser.reload();
+
+            toast.success("Registration successful!");
+            navigate("/");
+        } catch (err) {
+            toast.error(err.message);
+        }
     };
 
     const handleGoogleLogin = () => {

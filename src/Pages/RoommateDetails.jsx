@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { AuthContext } from '../Provider/AuthProvider';
+import { toast } from 'react-toastify';
 
 const RoommateDetails = () => {
   const { id } = useParams();
@@ -35,9 +36,9 @@ const RoommateDetails = () => {
     if (!roommate) return;
 
     if (roommate.email === userEmail) {
-      alert("You can't like your own post.");
-      return;
-    }
+    toast.error("You can't like your own post.");
+    return;
+  }
 
     try {
       const res = await fetch(`https://find-roommate-server.vercel.app/roommates/${id}/like`, {
