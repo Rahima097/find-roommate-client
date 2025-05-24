@@ -5,7 +5,7 @@ const BrowseListings = () => {
   const [roommates, setRoommates] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/roommates')
+    fetch('https://find-roommate-server.vercel.app/roommates')
       .then(res => res.json())
       .then(data => setRoommates(data))
       .catch(err => console.error('Failed to fetch listings:', err));

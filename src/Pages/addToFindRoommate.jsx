@@ -16,7 +16,7 @@ const AddToFindRoommate = () => {
 
     console.log(newRoommate);
 
-    fetch('http://localhost:3000/roommates', {
+    fetch('https://find-roommate-server.vercel.app/roommates', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

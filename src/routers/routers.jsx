@@ -20,7 +20,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        loader: () => fetch('http://localhost:3000/roommates/available?limit=6').then(res => res.json()),
+        loader: () => fetch('https://find-roommate-server.vercel.app/roommates/available?limit=6').then(res => res.json()),
         Component: Home,
       },
       {

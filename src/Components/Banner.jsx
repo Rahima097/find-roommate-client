@@ -11,6 +11,7 @@ import slideOneImg from './../assets/slide-1.jpg';
 import slideTwoImg from './../assets/slide-2.jpg';
 import slideThreeImg from './../assets/slide-3.jpg';
 
+
 const Banner = () => {
     const slides = [slideOneImg, slideTwoImg, slideThreeImg];
 

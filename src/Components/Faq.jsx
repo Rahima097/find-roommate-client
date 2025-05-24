@@ -1,7 +1,7 @@
-import React from 'react';
-import faqImg from './../assets/faq.png';
+import faqimg from './../assets/bg-r-faq.png'
 import { Typewriter } from 'react-simple-typewriter';
 import { Fade, Zoom } from 'react-awesome-reveal';
+
 
 const Faq = () => {
   return (
@@ -12,7 +12,7 @@ const Faq = () => {
         <Zoom triggerOnce>
           <div className="flex-1">
             <img
-              src={faqImg}
+              src={faqimg}
               alt="Roommate Discussion"
               className="w-full rounded-2xl"
             />
@@ -33,7 +33,7 @@ const Faq = () => {
           </h2>
 
           <div className="join join-vertical w-full">
-            <div className="collapse collapse-arrow join-item border border-base-300 my-2 bg-base-100">
+            <div className="collapse collapse-arrow join-item border border-base-300 my-2 ">
               <input type="radio" name="faq-accordion" defaultChecked />
               <div className="collapse-title text-lg font-medium text-secondary">
                 How do I find a suitable roommate?
@@ -43,7 +43,7 @@ const Faq = () => {
               </div>
             </div>
 
-            <div className="collapse collapse-arrow join-item border border-base-300 my-2 bg-base-100">
+            <div className="collapse collapse-arrow join-item border border-base-300 my-2 ">
               <input type="radio" name="faq-accordion" />
               <div className="collapse-title text-lg font-medium text-secondary">
                 Is it free to post a roommate listing?
@@ -53,7 +53,7 @@ const Faq = () => {
               </div>
             </div>
 
-            <div className="collapse collapse-arrow join-item border border-base-300 my-2 bg-base-100">
+            <div className="collapse collapse-arrow join-item border border-base-300 my-2 ">
               <input type="radio" name="faq-accordion" />
               <div className="collapse-title text-lg font-medium text-secondary">
                 Are the users verified?
@@ -63,7 +63,7 @@ const Faq = () => {
               </div>
             </div>
 
-            <div className="collapse collapse-arrow join-item border border-base-300 my-2 bg-base-100">
+            <div className="collapse collapse-arrow join-item border border-base-300 my-2 ">
               <input type="radio" name="faq-accordion" />
               <div className="collapse-title text-lg font-medium text-secondary">
                 Can I update or delete my listing?
@@ -73,7 +73,7 @@ const Faq = () => {
               </div>
             </div>
 
-            <div className="collapse collapse-arrow join-item border border-base-300 my-2 bg-base-100">
+            <div className="collapse collapse-arrow join-item border border-base-300 my-2 ">
               <input type="radio" name="faq-accordion" />
               <div className="collapse-title text-lg font-medium text-secondary">
                 How do I stay safe when meeting roommates?

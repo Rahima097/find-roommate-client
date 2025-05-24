@@ -9,7 +9,7 @@ import { Fade, Zoom } from 'react-awesome-reveal';
 
 const About = () => {
     return (
-        <div className="bg-base-200 py-16 px-4 space-y-24">
+        <div className="py-16 px-4 space-y-24">
             <div className="w-11/12 mx-auto flex flex-col lg:flex-row items-center gap-10">
                 <Zoom cascade damping={0.1}>
                     <div className="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
@@ -44,10 +44,10 @@ const About = () => {
                                 delaySpeed={2000}
                             />
                         </h2>
-                        <p className="text-gray-600">
+                        <p className="">
                             At FindRoommate, we believe that a great living experience starts with the right person...
                         </p>
-                        <p className="text-gray-600">
+                        <p className="">
                             We offer tools, filters, and secure messaging...
                         </p>
                         <div className="grid grid-cols-2 gap-4 mt-4">
@@ -72,13 +72,13 @@ const About = () => {
             <div className='w-11/12 mx-auto'>
                 <h2 className="text-4xl font-bold text-center text-secondary mb-8">How It <span className="text-primary">Works</span></h2>
                 <div className="tabs tabs-lift">
-                    <input type="radio" name="my_tabs_3" className="tab" aria-label="Rent a Room" />
-                    <div className="tab-content bg-base-100 border-base-300 p-6">
+                    <input type="radio" name="my_tabs_3" className="tab text-primary" aria-label="Rent a Room" />
+                    <div className="tab-content border-base-300 p-6">
                         <Fade triggerOnce direction="up">
                             <div className="w-11/12 mx-auto flex flex-col lg:flex-row items-center gap-10 tab-panel py-10">
                                 <div className="flex-1 space-y-4">
                                     <h3 className="text-2xl font-semibold text-secondary">Post Your Room Listing</h3>
-                                    <ul className="space-y-3 text-gray-700">
+                                    <ul className="space-y-3 ">
                                         <li>✅ Fill out a simple form...</li>
                                         <li>✅ Upload photos, location...</li>
                                         <li>✅ Create a free account...</li>
@@ -97,13 +97,13 @@ const About = () => {
                         </Fade>
                     </div>
 
-                    <input type="radio" name="my_tabs_3" className="tab" aria-label="Find a Room" defaultChecked />
-                    <div className="tab-content bg-base-100 border-base-300 p-6">
+                    <input type="radio" name="my_tabs_3" className="tab text-primary" aria-label="Find a Room" defaultChecked />
+                    <div className="tab-content  border-base-300 p-6">
                         <Fade triggerOnce direction="up">
                             <div className="w-11/12 mx-auto flex flex-col lg:flex-row items-center gap-10 tab-panel py-10">
                                 <div className="flex-1 space-y-4">
                                     <h3 className="text-2xl font-semibold text-secondary">Find Your Perfect Room</h3>
-                                    <ul className="space-y-3 text-gray-700">
+                                    <ul className="space-y-3 ">
                                         <li>✅ Browse verified listings...</li>
                                         <li>✅ Use filters like location...</li>
                                         <li>✅ Check roommate profiles...</li>

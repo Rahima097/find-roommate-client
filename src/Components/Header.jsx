@@ -48,13 +48,13 @@ const Header = () => {
                   alt={user.displayName || 'User'}
                   className="w-10 h-10 rounded-full cursor-pointer"
                 />
-                <span className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 bg-gray-700 text-white text-xs rounded px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-50">
+                <span className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2  text-white text-xs rounded px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-50">
                   {user.displayName || 'No Name'}
                 </span>
               </div>
               <button
                 onClick={handleLogout}
-                className="btn btn-ghost text-primary hover:text-secondary"
+                className="btn bg-primary text-white hover:text-secondary"
               >
                 Log out
               </button>

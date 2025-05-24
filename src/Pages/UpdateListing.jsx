@@ -10,7 +10,7 @@ const UpdateListing = () => {
 
     // Fetch listing data by ID
     useEffect(() => {
-        fetch(`http://localhost:3000/roommates/${id}`)
+        fetch(`https://find-roommate-server.vercel.app/roommates/${id}`)
             .then(res => res.json())
             .then(data => setListing(data))
             .catch(err => console.error('Error loading listing:', err));
@@ -22,7 +22,7 @@ const UpdateListing = () => {
         const formData = new FormData(form);
         const updatedRoommate = Object.fromEntries(formData.entries());
 
-        fetch(`http://localhost:3000/roommates/${id}`, {
+        fetch(`https://find-roommate-server.vercel.app/roommates/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

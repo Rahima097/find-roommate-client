@@ -11,7 +11,7 @@ const MyListings = () => {
     useEffect(() => {
         if (!user?.email) return;
 
-        fetch(`http://localhost:3000/roommates/mylistings?email=${user.email}`)
+        fetch(`https://find-roommate-server.vercel.app/roommates/mylistings?email=${user.email}`)
             .then(res => res.json())
             .then(data => {
                 setListings(data);
@@ -37,7 +37,7 @@ const MyListings = () => {
         if (!confirm.isConfirmed) return;
 
         try {
-            const res = await fetch(`http://localhost:3000/roommates/${id}`, {
+            const res = await fetch(`https://find-roommate-server.vercel.app/roommates/${id}`, {
                 method: 'DELETE',
             });
 

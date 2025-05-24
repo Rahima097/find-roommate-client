@@ -17,7 +17,7 @@ const RoommateDetails = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/roommates/${id}`);
+        const res = await fetch(`https://find-roommate-server.vercel.app/roommates/${id}`);
         const data = await res.json();
         setRoommate(data);
         setLikeCount(data.likes || 0);
@@ -40,7 +40,7 @@ const RoommateDetails = () => {
     }
 
     try {
-      const res = await fetch(`http://localhost:3000/roommates/${id}/like`, {
+      const res = await fetch(`https://find-roommate-server.vercel.app/roommates/${id}/like`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ likes: likeCount + 1 })
