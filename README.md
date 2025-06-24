@@ -34,16 +34,4 @@ Built with **React 19** and styled using **Tailwind CSS**, enhanced with animati
 "swiper": "^11.2.7",
 "theme-change": "^2.5.0"
 
-## 🛠️ Backend
-Built with Node.js and Express, with MongoDB as the database.
-
-NPM Packages:
-
-```json
-{
-  "cors": "^2.8.5",
-  "dotenv": "^16.5.0",
-  "express": "^5.1.0",
-  "mongodb": "^6.16.0"
-}
 
