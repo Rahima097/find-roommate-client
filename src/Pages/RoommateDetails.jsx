@@ -9,7 +9,6 @@ const RoommateDetails = () => {
   const { user } = useContext(AuthContext);
   const userEmail = user?.email;
 
-
   const [roommate, setRoommate] = useState(null);
   const [loading, setLoading] = useState(true);
   const [liked, setLiked] = useState(false);
@@ -36,9 +35,9 @@ const RoommateDetails = () => {
     if (!roommate) return;
 
     if (roommate.email === userEmail) {
-    toast.error("You can't like your own post.");
-    return;
-  }
+      toast.error("You can't like your own post.");
+      return;
+    }
 
     try {
       const res = await fetch(`https://find-roommate-server.vercel.app/roommates/${id}/like`, {
@@ -62,7 +61,7 @@ const RoommateDetails = () => {
 
   const {
     title, name, email, contact, roomType, lifestyle,
-    location, rentAmount, availability, description
+    location, rentAmount, availability, description, imageUrl
   } = roommate;
 
   return (
@@ -70,7 +69,7 @@ const RoommateDetails = () => {
       <div className="mb-6 text-2xl font-semibold text-secondary text-center">(
         {likeCount} {likeCount === 1 ? 'person' : 'people'} interested in this listing)
       </div>
-      <div className="max-w-4xl mx-auto p-10 bg-white shadow-lg rounded-lg ">
+      <div className="max-w-4xl mx-auto p-10 bg-white shadow-lg rounded-lg">
         <div className="flex justify-between items-center mb-4">
           <h2 className="lg:text-3xl text-xl font-bold text-primary">{title}</h2>
           <div className="flex flex-col items-end">
@@ -89,6 +88,20 @@ const RoommateDetails = () => {
             </span>
           </div>
         </div>
+
+        {/* Image Section */}
+        {imageUrl && (
+          <div className="mb-6">
+            <img 
+              src={imageUrl || "/placeholder.svg"} 
+              alt={title}
+              className="w-full h-64 md:h-80 object-cover rounded-lg shadow-md"
+              onError={(e) => {
+                e.target.style.display = 'none';
+              }}
+            />
+          </div>
+        )}
 
         <p className="text-lg text-gray-600 mb-4">{description}</p>
 

@@ -1,6 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes: light --default;
+}
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: #002921;
+  --color-secondary: #fdad00;
+  --color-base-200: #e2f1e7;
+  --color-accent: #0a1a3d;
+}
 
 * {
     font-family: "Nunito Sans", sans-serif;

@@ -69,6 +69,7 @@ const UpdateListing = () => {
                     <option value="Shared">Shared</option>
                 </select>
                 <input name="lifestyle" defaultValue={listing.lifestyle} className="w-full input input-bordered" required />
+                <input name="imageUrl" type="url" defaultValue={listing.imageUrl || ''} placeholder="Image URL" className="w-full input input-bordered col-span-2" required />
                 <textarea name="description" defaultValue={listing.description} className="w-full textarea textarea-bordered col-span-2" required />
                 <input name="contact" defaultValue={listing.contact} className="w-full input input-bordered" required />
                 <select name="availability" defaultValue={listing.availability} className="w-full select select-bordered">

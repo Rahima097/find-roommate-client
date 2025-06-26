@@ -7,8 +7,8 @@ const FeatureRoommate = ({ roommates }) => {
         <div className=''>
             <div className='w-11/12 mx-auto py-12'>
                 <h2 className='text-4xl font-bold text-primary text-center'> Feature <span className='text-secondary'>Roommate</span></h2>
-                <p className='text-center pt-2 text-secondary'>Easily find a roommate who matches your lifestyle and budget.</p>
-                <div className=' py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 '  >
+                <p className='text-center pt-2 text-primary'>Easily find a roommate who matches your lifestyle and budget.</p>
+                <div className=' py-12 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 '  >
                     {
                         roommates && roommates.length > 0
                             ? roommates.map(roommate => (

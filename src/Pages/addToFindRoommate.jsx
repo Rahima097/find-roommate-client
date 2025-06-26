@@ -64,6 +64,7 @@ const AddToFindRoommate = () => {
           <option>Shared</option>
         </select>
         <input name="lifestyle" placeholder="Lifestyle Preferences" className="input input-bordered w-full" required />
+        <input name="imageUrl" type="url" placeholder="Image URL" className="input input-bordered col-span-2 w-full" required />
         <textarea name="description" placeholder="Description" className="textarea textarea-bordered col-span-2 w-full" required />
         <input name="contact" placeholder="Contact Info" className="input input-bordered w-full" required />
         <select name="availability" className="select select-bordered w-full" defaultValue="available">

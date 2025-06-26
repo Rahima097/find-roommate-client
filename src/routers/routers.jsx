@@ -10,8 +10,10 @@ import MyListings from "../Pages/MyListings";
 import PrivateRoute from "../Provider/PrivateRoute";
 import RoommateDetails from "../Pages/RoommateDetails";
 import UpdateListing from "../Pages/UpdateListing";
-
-
+import About from "../Pages/About"
+import Faq from "../Pages/Faq"
+import Contact from "../Pages/Contact";
+import Dashboard from "../Pages/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -32,32 +34,63 @@ const router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path: "/add-listings",
-        element: <PrivateRoute><AddToFindRoommate></AddToFindRoommate></PrivateRoute>,
+        path: "/about",
+        element: <About></About>,
+      },
+      {
+        path: "/faq",
+        element: <Faq></Faq>,
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>,
       },
       {
         path: "/browse-listings",
         element: <BrowseListings></BrowseListings>,
       },
       {
+        path: "/add-listings",
+        element: <PrivateRoute><AddToFindRoommate></AddToFindRoommate></PrivateRoute>,
+      },
+      {
         path: "/my-listings",
         element: <PrivateRoute><MyListings></MyListings></PrivateRoute>,
       },
-
       {
         path: "/roommate/:id",
         element: <PrivateRoute><RoommateDetails></RoommateDetails></PrivateRoute>,
       },
       {
         path: "/mylistings/update/:id",
-        element: < PrivateRoute ><UpdateListing></UpdateListing></PrivateRoute >,      
+        element: <PrivateRoute><UpdateListing></UpdateListing></PrivateRoute>,
       }
-      
-
     ]
   },
-{
-  path: "*",
+  {
+    path: "/dashboard",
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    children: [
+      {
+        path: "all-listings",
+        element: <BrowseListings></BrowseListings>,
+      },
+      {
+        path: "my-listings",
+        element: <MyListings></MyListings>,
+      },
+      {
+        path: "add-listing",
+        element: <AddToFindRoommate></AddToFindRoommate>,
+      },
+      {
+        path: "update-listing/:id",
+        element: <UpdateListing></UpdateListing>,
+      }
+    ]
+  },
+  {
+    path: "*",
     Component: ErrorPage,
   },
 ]);

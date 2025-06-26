@@ -7,9 +7,9 @@ import { Fade } from 'react-awesome-reveal';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-import slideOneImg from './../assets/slide-1.jpg';
-import slideTwoImg from './../assets/slide-2.jpg';
-import slideThreeImg from './../assets/slide-3.jpg';
+import slideOneImg from './../assets/slide-1.png';
+import slideTwoImg from './../assets/slide-2.png';
+import slideThreeImg from './../assets/slide-3.png';
 
 
 const Banner = () => {
