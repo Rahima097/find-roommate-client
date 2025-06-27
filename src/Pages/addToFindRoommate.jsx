@@ -46,7 +46,7 @@ const AddToFindRoommate = () => {
   };
 
   return (
-    <div className="mx-auto bg-base-200 py-12">
+    <div className="mx-auto  bg-base-200 py-12">
       <div className='lg:md:w-5/12 w-full mx-auto'>
         <h2 className="text-3xl font-bold mb-4 text-primary text-center">Add To Find Your Roommate Listing</h2>
         <p className='text-center pb-6 text-secondary'>

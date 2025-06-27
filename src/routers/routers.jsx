@@ -4,8 +4,8 @@ import Home from "../Pages/Home"
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import ErrorPage from "../Pages/ErrorPage";
-import AddToFindRoommate from "../Pages/AddToFindRoommate";
-import BrowseListings from "../Pages/BrowseListings";
+import AddToFindRoommate from "../Pages/addToFindRoommate";
+import BrowseListings from "../Pages/browseListings";
 import MyListings from "../Pages/MyListings";
 import PrivateRoute from "../Provider/PrivateRoute";
 import RoommateDetails from "../Pages/RoommateDetails";
@@ -50,14 +50,6 @@ const router = createBrowserRouter([
         element: <BrowseListings></BrowseListings>,
       },
       {
-        path: "/add-listings",
-        element: <PrivateRoute><AddToFindRoommate></AddToFindRoommate></PrivateRoute>,
-      },
-      {
-        path: "/my-listings",
-        element: <PrivateRoute><MyListings></MyListings></PrivateRoute>,
-      },
-      {
         path: "/roommate/:id",
         element: <PrivateRoute><RoommateDetails></RoommateDetails></PrivateRoute>,
       },
@@ -83,10 +75,6 @@ const router = createBrowserRouter([
         path: "add-listing",
         element: <AddToFindRoommate></AddToFindRoommate>,
       },
-      {
-        path: "update-listing/:id",
-        element: <UpdateListing></UpdateListing>,
-      }
     ]
   },
   {

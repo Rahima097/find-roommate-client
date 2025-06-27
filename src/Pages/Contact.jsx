@@ -1,84 +1,110 @@
-import React, { useState, useContext } from 'react';
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock, FaPaperPlane } from 'react-icons/fa';
-import { AuthContext } from '../Provider/AuthProvider';
+"use client"
+
+import { useState, useContext } from "react"
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock, FaPaperPlane } from "react-icons/fa"
+import { AuthContext } from "../Provider/AuthProvider"
+import { toast, ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 const Contact = () => {
-  const { user } = useContext(AuthContext);
+  const { user } = useContext(AuthContext)
   const [formData, setFormData] = useState({
-    name: user?.displayName || '',
-    email: user?.email || '',
-    subject: '',
-    message: ''
-  });
-  const [loading, setLoading] = useState(false);
+    name: user?.displayName || "",
+    email: user?.email || "",
+    subject: "",
+    message: "",
+  })
+  const [loading, setLoading] = useState(false)
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+      [e.target.name]: e.target.value,
+    })
+  }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
+    e.preventDefault()
+    setLoading(true)
 
     try {
+      // Validate form data
+      if (!formData.name.trim() || !formData.email.trim() || !formData.subject.trim() || !formData.message.trim()) {
+        toast.error("Please fill in all required fields!")
+        setLoading(false)
+        return
+      }
+
       // Send to your backend API
-      const response = await fetch('http://localhost:3000/contacts', {
-        method: 'POST',
+      const response = await fetch("https://find-roommate-server.vercel.app/contact", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           ...formData,
           userId: user?.uid || null,
-          timestamp: new Date().toISOString()
-        })
-      });
+          timestamp: new Date().toISOString(),
+        }),
+      })
 
-      if (response.ok) {
-        // Success toast using DaisyUI
-        const toast = document.createElement('div');
-        toast.className = 'toast toast-top toast-end';
-        toast.innerHTML = `
-          <div class="alert alert-success">
-            <span>Message sent successfully! We'll get back to you soon.</span>
-          </div>
-        `;
-        document.body.appendChild(toast);
-        setTimeout(() => document.body.removeChild(toast), 3000);
+      const result = await response.json()
+
+      if (response.ok && result.success) {
+        // Success toast
+        toast.success("🎉 Message sent successfully! We'll get back to you soon.", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        })
 
         // Reset form
         setFormData({
-          name: user?.displayName || '',
-          email: user?.email || '',
-          subject: '',
-          message: ''
-        });
+          name: user?.displayName || "",
+          email: user?.email || "",
+          subject: "",
+          message: "",
+        })
       } else {
-        throw new Error('Failed to send message');
+        throw new Error(result.message || "Failed to send message")
       }
     } catch (error) {
-      console.error('Error sending message:', error);
-      
-      // Error toast using DaisyUI
-      const toast = document.createElement('div');
-      toast.className = 'toast toast-top toast-end';
-      toast.innerHTML = `
-        <div class="alert alert-error">
-          <span>Failed to send message. Please try again.</span>
-        </div>
-      `;
-      document.body.appendChild(toast);
-      setTimeout(() => document.body.removeChild(toast), 3000);
+      console.error("Error sending message:", error)
+
+      // Error toast
+      toast.error("❌ Failed to send message. Please try again later.", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      })
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
   return (
     <div className="min-h-screen bg-base-200">
+      {/* Toast Container */}
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        className="mt-16"
+      />
+
       {/* Hero Section */}
       <div className="hero bg-primary text-primary-content py-16">
         <div className="hero-content text-center">
@@ -107,7 +133,11 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">Address</h3>
-                  <p className="text-base-content/70">Online platform<br />Khulna, Bangladesh</p>
+                  <p className="text-base-content/70">
+                    Online platform
+                    <br />
+                    Khulna, Bangladesh
+                  </p>
                 </div>
               </div>
 
@@ -138,8 +168,10 @@ const Contact = () => {
                 <div>
                   <h3 className="font-semibold mb-1">Business Hours</h3>
                   <p className="text-base-content/70">
-                    Monday - Friday: 9:00 AM - 6:00 PM<br />
-                    Saturday: 10:00 AM - 4:00 PM<br />
+                    Monday - Friday: 9:00 AM - 6:00 PM
+                    <br />
+                    Saturday: 10:00 AM - 4:00 PM
+                    <br />
                     Sunday: Closed
                   </p>
                 </div>
@@ -151,7 +183,7 @@ const Contact = () => {
           <div className="card bg-base-100 shadow-xl">
             <div className="card-body">
               <h2 className="card-title text-2xl mb-6">Send us a Message</h2>
-              
+
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="form-control">
                   <label className="label">
@@ -163,7 +195,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="input input-bordered w-full"
+                    className="input input-bordered w-full focus:input-primary"
                     placeholder="Enter your full name"
                   />
                 </div>
@@ -178,7 +210,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="input input-bordered w-full"
+                    className="input input-bordered w-full focus:input-primary"
                     placeholder="Enter your email address"
                   />
                 </div>
@@ -193,7 +225,7 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="input input-bordered w-full"
+                    className="input input-bordered w-full focus:input-primary"
                     placeholder="What is this about?"
                   />
                 </div>
@@ -208,7 +240,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows="5"
-                    className="textarea textarea-bordered w-full"
+                    className="textarea textarea-bordered w-full focus:textarea-primary resize-none"
                     placeholder="Tell us how we can help you..."
                   ></textarea>
                 </div>
@@ -217,10 +249,13 @@ const Contact = () => {
                   <button
                     type="submit"
                     disabled={loading}
-                    className={`btn btn-primary w-full ${loading ? 'loading' : ''}`}
+                    className={`btn btn-primary w-full ${loading ? "loading" : ""} hover:btn-primary-focus transition-all duration-200`}
                   >
                     {loading ? (
-                      'Sending...'
+                      <>
+                        <span className="loading loading-spinner loading-sm"></span>
+                        Sending...
+                      </>
                     ) : (
                       <>
                         <FaPaperPlane className="mr-2" />
@@ -238,38 +273,47 @@ const Contact = () => {
         <div className="mt-16">
           <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="card bg-base-100 shadow-md">
+            <div className="card bg-base-100 shadow-md hover:shadow-lg transition-shadow duration-200">
               <div className="card-body">
                 <h3 className="card-title text-lg">How do I create a listing?</h3>
-                <p className="text-base-content/70">Simply register for an account and click on "Add Listing" in your dashboard to create your roommate listing.</p>
+                <p className="text-base-content/70">
+                  Simply register for an account and click on "Add Listing" in your dashboard to create your roommate
+                  listing.
+                </p>
               </div>
             </div>
-            
-            <div className="card bg-base-100 shadow-md">
+
+            <div className="card bg-base-100 shadow-md hover:shadow-lg transition-shadow duration-200">
               <div className="card-body">
                 <h3 className="card-title text-lg">Is the platform free to use?</h3>
-                <p className="text-base-content/70">Yes, basic features are completely free. Premium features are available for enhanced visibility.</p>
+                <p className="text-base-content/70">
+                  Yes, basic features are completely free. Premium features are available for enhanced visibility.
+                </p>
               </div>
             </div>
-            
-            <div className="card bg-base-100 shadow-md">
+
+            <div className="card bg-base-100 shadow-md hover:shadow-lg transition-shadow duration-200">
               <div className="card-body">
                 <h3 className="card-title text-lg">How do I contact other users?</h3>
-                <p className="text-base-content/70">You can message other users directly through our secure messaging system once you're logged in.</p>
+                <p className="text-base-content/70">
+                  You can message other users directly through our secure messaging system once you're logged in.
+                </p>
               </div>
             </div>
-            
-            <div className="card bg-base-100 shadow-md">
+
+            <div className="card bg-base-100 shadow-md hover:shadow-lg transition-shadow duration-200">
               <div className="card-body">
                 <h3 className="card-title text-lg">How do I report inappropriate content?</h3>
-                <p className="text-base-content/70">Use the report button on any listing or contact us directly. We take all reports seriously.</p>
+                <p className="text-base-content/70">
+                  Use the report button on any listing or contact us directly. We take all reports seriously.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact
