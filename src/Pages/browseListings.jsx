@@ -62,7 +62,7 @@ const BrowseListingCard = ({ roommate, index }) => {
         <div className="absolute top-2 right-2">
           <div
             className={`badge font-semibold text-xs ${
-              availability === "available" ? "badge-success text-white" : "badge-error text-white"
+              availability === "available" ? "badge-secondary text-white" : "badge-error text-white"
             }`}
           >
             {availability === "available" ? (
@@ -103,8 +103,8 @@ const BrowseListingCard = ({ roommate, index }) => {
           </div>
 
           <div className="flex items-center gap-2 text-xs sm:text-sm">
-            <FaMoneyBillWave className="text-success flex-shrink-0 text-xs" />
-            <span className="font-semibold text-success">BDT {rentAmount}/month</span>
+            <FaMoneyBillWave className="text-secondary flex-shrink-0 text-xs" />
+            <span className="font-semibold text-secondary">BDT {rentAmount}/month</span>
           </div>
 
           <div className="flex items-center gap-2 text-xs sm:text-sm">

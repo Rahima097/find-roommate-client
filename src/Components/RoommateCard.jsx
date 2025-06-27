@@ -47,7 +47,7 @@ const RoommateCard = ({ roommate }) => {
                 />
                 {/* Availability Badge */}
                 <div className="absolute top-3 right-3">
-                    <div className="badge badge-success text-white font-semibold">
+                    <div className="badge badge-secondary text-white font-semibold">
                         Available
                     </div>
                 </div>
@@ -73,8 +73,8 @@ const RoommateCard = ({ roommate }) => {
                     </div>
                     
                     <div className="flex items-center gap-2 text-sm">
-                        <FaMoneyBillWave className="text-success flex-shrink-0" />
-                        <span className="font-semibold text-success">BDT {rentAmount}/month</span>
+                        <FaMoneyBillWave className="text-secondary flex-shrink-0" />
+                        <span className="font-semibold text-secondary">BDT {rentAmount}/month</span>
                     </div>
                     
                     <div className="flex items-center gap-2 text-sm">

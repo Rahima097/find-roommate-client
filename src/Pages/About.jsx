@@ -6,11 +6,12 @@ import findRoomImg from './../assets/find-room.jpg';
 import { Link } from 'react-router';
 import { Typewriter } from 'react-simple-typewriter';
 import { Fade, Zoom } from 'react-awesome-reveal';
+import TestimonialSection from '../Components/TestimonialSection';
 
 const About = () => {
     return (
-        <div className="py-16 px-4 space-y-24">
-            <div className="w-11/12 mx-auto flex flex-col lg:flex-row items-center gap-10">
+        <div className=" px-0 space-y-24">
+            <div className="w-11/12 mx-auto py-16 flex flex-col lg:flex-row items-center gap-10">
                 <Zoom cascade damping={0.1}>
                     <div className="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
                         <div className="w-full h-full">
@@ -123,7 +124,9 @@ const About = () => {
                     </div>
                 </div>
             </div>
+            <TestimonialSection></TestimonialSection>
         </div>
+        
     );
 };
 
